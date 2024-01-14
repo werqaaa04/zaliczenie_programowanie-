@@ -1,0 +1,22 @@
+import tkinter as tk
+from tkinter import messagebox
+
+class QuizApp:
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Quiz - Typ Studenta")
+        self.master.geometry("420x300")  
+
+        self.pytania = [
+            "1. Dlaczego jesteś na tych studiach?",
+            "2. Jak często wychodzisz ze znajomymi?",
+            "3. Jak często prosisz o notatki z zajęć?",
+            "4. Jak często poprawiasz kolokwia/egzaminy?",
+            "5. Czy dobrze się uczysz?",
+            "6. Kiedy zaczynasz naukę na zaliczenie?",
+            "7. Jakie masz podejście do egzaminów na studiach?",
+            "8. Jak często zdarzy ci się zasnąć na zajęciach?",
+            "9. Jakie jest twoje podejście do pracy zespołowej?",
+            "10. Jak reagujesz na trudności w nauce?",
+            "11. Ilu zeszytów potrzebujesz?"
+        ]
