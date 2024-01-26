@@ -19,4 +19,8 @@ class QuizApp:
             "9. Jakie jest twoje podejście do pracy zespołowej?",
             "10. Jak reagujesz na trudności w nauce?",
             "11. Ilu zeszytów potrzebujesz?"
+            "12. Kiedy wykonujesz zadane projekty?",
+            "13. Jak oceniasz swoją organizację czasu?",
+            "14. Jak często korzystasz z korepetycji lub pomocy dodatkowej?"
         ]
+        
