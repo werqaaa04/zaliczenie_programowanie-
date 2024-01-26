@@ -34,3 +34,40 @@ class QuizApp:
             ["a) Pojawiam się i od razu zasypiam", "b) Jestem tylko człowiekiem", "c) Zdarzyło mi się raz czy dwa", "d) Nigdy w życiu, zawsze uważnie słucham i notuję"],
             ["a) Pojawiam się na początku i na końcu, bardziej przeszkadzam niż pomagam", "b) Robię najmniej", "c) Wolę pracować samodzielnie, ale potrafię dostosować się do zespołu", "d) Lubię współpracować z innymi i dzielić się pomysłami"],
             ["a) Nie mam trudności bo się nie uczę", "b) Wychodzę z założenia, że uda mi się ściągnąć", "c) Zazwyczaj ignoruję trudności, liczę na lepsze czasy", "d) Szukam dodatkowej pomocy, pytając nauczycieli lub kolegów"],
+            ["a) Okrągłe zero", "b) Kartka i długopis wystarczą", "c) Jeden do wszystkiego", "d) Do każdego przedmiotu osobny"],
+            ["a) Czekam aż reszta grupy zrobi", "b) Dzień przed", "c) Tydzień przed", "d) Zaczynam od razu kiedy się o nich dowiem"],
+            ["a) Robię wszystko na ostatnią chwilę", "b) Robię coś wtedy gdy mam na to ochotę ", "c) Organizuję dzień, ale nie zawsze trzymam się planu", "d) Jestem bardzo zorganizowany/zorganizowana - planuję każdą godzinę dnia"],
+            ["a) Bardzo często", "b) Rzadko ", "c) E-trapez mi wystarcza", "d) Zazwyczaj to ja pomagam innym"]
+        ]
+
+        self.punkty_typu_studenta = {
+            "a": 1,
+            "b": 2,
+            "c": 3,
+            "d": 4
+        }
+
+        self.suma_punktow = 0
+        self.current_question = 0
+
+        self.label_question = tk.Label(master, text=self.pytania[self.current_question], justify="left")
+        self.label_question.pack(pady=10)
+
+        self.radio_var = tk.StringVar()
+        self.radio_var.set(None)  # Ustawienie początkowej wartości na None
+
+        self.radio_buttons = []
+
+        for odpowiedz in self.odpowiedzi[self.current_question]:
+            radio_btn = tk.Radiobutton(master, text=odpowiedz, variable=self.radio_var, value=odpowiedz[0].lower())
+            radio_btn.pack(anchor="w")
+            self.radio_buttons.append(radio_btn)
+
+        self.button_next = tk.Button(master, text="Następne", command=self.next_question)
+        self.button_next.pack(side=tk.BOTTOM, pady=10)
+
+    def next_question(self):
+        selected_answer = self.radio_var.get()
+        if selected_answer:
+            self.suma_punktow += self.punkty_typu_studenta[selected_answer]
+            self.current_question += 1
