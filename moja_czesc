@@ -5,22 +5,32 @@ class QuizApp:
     def __init__(self, master):
         self.master = master
         self.master.title("Quiz - Typ Studenta")
-        self.master.geometry("420x300")  
 
         self.pytania = [
             "1. Dlaczego jesteś na tych studiach?",
             "2. Jak często wychodzisz ze znajomymi?",
             "3. Jak często prosisz o notatki z zajęć?",
-            "4. Jak często poprawiasz kolokwia/egzaminy?",
+            "4. Jak szybko zdajesz egzaminy i kolokwia?",
             "5. Czy dobrze się uczysz?",
-            "6. Kiedy zaczynasz naukę na zaliczenie?",
+            "6. Kiedy zaczynasz naukę do zaliczenia?",
             "7. Jakie masz podejście do egzaminów na studiach?",
-            "8. Jak często zdarzy ci się zasnąć na zajęciach?",
+            "8. Jak często zdarza ci się zasnąć na zajęciach?",
             "9. Jakie jest twoje podejście do pracy zespołowej?",
             "10. Jak reagujesz na trudności w nauce?",
-            "11. Ilu zeszytów potrzebujesz?"
+            "11. Ilu zeszytów potrzebujesz?",
             "12. Kiedy wykonujesz zadane projekty?",
             "13. Jak oceniasz swoją organizację czasu?",
             "14. Jak często korzystasz z korepetycji lub pomocy dodatkowej?"
         ]
-        
+
+        self.odpowiedzi = [
+            ["a) Bo mama mi kazała", "b) Dla zniżek studenckich", "c) Chcę dobrze zarabiać", "d) To moje powołanie"],
+            ["a) Codziennie", "b) Raz w tygodniu", "c) Raz czy dwa w miesiącu", "d) Raz w semestrze"],
+            ["a) Jakie notatki? Trzeba coś notować?", "b) Mój kolega pisze wszystko za mnie", "c) Tylko gdy sam nie mogłem być na zajęciach", "d) To ja wysyłam notatki innym"],
+            ["a) Brakuje dla mnie terminów", "b) 3 terminy wystarczają", "c) Zdarzyło mi się poprawiać", "d) Jeszcze nigdy nic nie musiałem/am poprawiać"],
+            ["a) Nie", "b) Byleby zdać", "c) Wystarczająco dobrze", "d) Tak"],
+            ["a) Nie uczę się, spisuję od kolegi obok", "b) Wieczór przed coś poczytam, reszta na logikę", "c) Tydzień przed", "d) Systematycznie od początku semestru"],
+            ["a) Nie wystarczy, że muszę chodzić na ćwiczenie? Po co te egzaminy?", "b) Nie uczę się, biorę na logikę", "c) Zakuć, zdać, zapomnieć", "d) Od tego zależy cała moja przyszłość"],
+            ["a) Pojawiam się i od razu zasypiam", "b) Jestem tylko człowiekiem", "c) Zdarzyło mi się raz czy dwa", "d) Nigdy w życiu, zawsze uważnie słucham i notuję"],
+            ["a) Pojawiam się na początku i na końcu, bardziej przeszkadzam niż pomagam", "b) Robię najmniej", "c) Wolę pracować samodzielnie, ale potrafię dostosować się do zespołu", "d) Lubię współpracować z innymi i dzielić się pomysłami"],
+            ["a) Nie mam trudności bo się nie uczę", "b) Wychodzę z założenia, że uda mi się ściągnąć", "c) Zazwyczaj ignoruję trudności, liczę na lepsze czasy", "d) Szukam dodatkowej pomocy, pytając nauczycieli lub kolegów"],
