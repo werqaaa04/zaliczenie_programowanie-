@@ -71,3 +71,41 @@ class QuizApp:
         if selected_answer:
             self.suma_punktow += self.punkty_typu_studenta[selected_answer]
             self.current_question += 1
+
+            if self.current_question < len(self.pytania):
+                self.label_question.config(text=self.pytania[self.current_question])
+                self.radio_var.set(None)  # Ustawienie wartości na None
+
+                for radio_btn in self.radio_buttons:
+                    radio_btn.destroy()
+         
+                self.radio_buttons = []
+                for odpowiedz in self.odpowiedzi[self.current_question]:
+                    radio_btn = tk.Radiobutton(self.master, text=odpowiedz, variable=self.radio_var,
+                                               value=odpowiedz[0].lower())
+                    radio_btn.pack(anchor="w")
+                    self.radio_buttons.append(radio_btn)
+            else:
+                self.show_result()
+        else:
+            messagebox.showinfo("Błąd", "Wybierz odpowiedź.")
+
+    def show_result(self):
+        result_text = ""
+        if 0 <= self.suma_punktow <= 20:
+            result_text = "Typ: Turysta Akademicki - Nigdy nie jesteś na nic przygotowany! Pojawiasz się na uczelni tylko dla zniżek i spotkań ze znajomymi. Lepiej pomyśl nad swoim postępowaniem, ponieważ z obecnym nastawieniem długo nie pobędziesz studentem."
+        elif 21 <= self.suma_punktow <= 34:
+            result_text = "Typ: Mistrz Sztuki Utrzymywania Pozorów - Starasz się sprawiać pozory, że zależy Ci na nauce i studiach. Brakuje ci motywacji oraz samozaparcia. Jeszcze uda się to naprawić, musisz tylko chcieć! (Wierzymy w Ciebie)."
+        elif 35 <= self.suma_punktow <= 45:
+            result_text = "Typ: Guru Balansu - Potrafisz znależć równowagę między nauką, a życiem towarzyskim. Zdajesz sobie sprawę, że zamiast 4 mógłbyś/mogłabyś otrzymywać 5, ale wychodzisz z założenia 'Co za dużo, to niezdrowo'."
+        elif 46 <= self.suma_punktow <= 56:
+            result_text = "Typ: Wzór do Naśladowania - Jesteś idealnym, zorganizowanym i systematycznym studentem. W Twoim indeksie znajdują się same 5. Stypendium gwarantowane! Takie zachowanie jak najbardziej na plus :D."
+
+        messagebox.showinfo("Wynik quizu", result_text)
+        self.master.destroy()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = QuizApp(root)
+    root.mainloop()
+
